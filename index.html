@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Portfolio</title>
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/avatars/360877795829612546/d13b5621afd59d5d17f21da2dbab267d?size=1024">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 <body>
     <div class="container">
@@ -31,7 +32,6 @@
                 <li class="project" data-project="2">ProxyScraper</li>
                 <li class="project" data-project="3">SOON</li>
             </ul>
-            <a href="https://github.com/ToxicDev-Patryk" class="github-button">My GitHub Profile</a>
         </div>
     </div>
     <div class="project-modal" id="project-modal">
@@ -39,6 +39,32 @@
             <span class="close-button" id="close-button">&times;</span>
             <h2 id="project-title">Project Title</h2>
             <p id="project-description">Project Description</p>
+        </div>
+    </div>
+    <div id="certificateWindow" class="window">
+        <div class="window-header" id="windowHeader">
+            Certificates
+            <span class="close-btn2" id="closeBtn2">&times;</span>
+        </div>
+        <div class="window-content">
+            <ul>
+                <li><a href="https://app.cybrary.it/courses/api/certificate/CC-da55d642-01d6-4249-bb04-aba8963f4415/view" target="_blank">CISSP Certificate</a></li>
+                <li><a href="https://app.cybrary.it/courses/api/certificate/CC-3bba7807-b217-47be-9820-27c42640f5bb/view" target="_blank">CASP+ Cerfificate</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="profileWindow" class="window">
+        <div class="window-header" id="profileHeader">
+            Profiles
+            <span class="close-btn2" id="profileCloseBtn">&times;</span>
+        </div>
+        <div class="window-content"> 
+            <ul>
+                <li><a href="https://github.com/ToxicDev-Patryk" target="_blank">Github Profile</a></li>
+                <li><a href="https://app.cybrary.it/profile?tab=cert-completion" target="_blank">Cybrary Profile</a></li>
+                <li><a href="https://app.hackthebox.com/profile/2039190" target="_blank">HackTheBox Profile</a></li>
+            </ul>
         </div>
     </div>
     <script src="script.js"></script>
