@@ -1,4 +1,66 @@
+function getRandomLeft() {
+    const ranges = [
+        { min: 15, max: 30 },
+        { min: 60, max: 80 }
+    ];
+    const range = ranges[Math.floor(Math.random() * ranges.length)];
+    return Math.random() * (range.max - range.min) + range.min;
+}
+
+function updateLeftPositions() {
+    document.body.style.setProperty('--left-before', `${getRandomLeft()}%`);
+    document.body.style.setProperty('--left-after', `${getRandomLeft()}%`);
+}
+
+dragElement(document.getElementById("certificateWindow"));
+dragElement(document.getElementById("profileWindow"));
+
+function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (elmnt.querySelector(".window-header")) {
+        elmnt.querySelector(".window-header").onmousedown = dragMouseDown;
+    } else {
+        elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+
+document.getElementById("profileCloseBtn").onclick = function() {
+    document.getElementById("profileWindow").style.display = "none";
+}
+
+document.getElementById("closeBtn2").onclick = function() {
+    document.getElementById("certificateWindow").style.display = "none";
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    updateLeftPositions();
+    setInterval(updateLeftPositions, 900);
     const projects = document.querySelectorAll('.project');
     const modal = document.getElementById('project-modal');
     const closeButton = document.getElementById('close-button');
